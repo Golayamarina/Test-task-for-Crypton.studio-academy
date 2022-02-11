@@ -27,3 +27,4 @@ return donators;
 function getDonationValue() public view  returns(uint) {
 return donationValue;
 }
+}
