@@ -7,11 +7,12 @@ address payable public owner;
 address [] public donators;
 uint public donationValue;
 
-constructor () public {
-owner = msg.sender;
+constructor () {
+owner = payable(msg.sender);
 }
 
 function gatherDonation() public payable {
+    require(msg.value >= 0.01 ether, "Too little money!");
 donators.push(msg.sender);
 }
 
