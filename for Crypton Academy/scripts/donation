@@ -1,0 +1,29 @@
+
+const hre = require('hardhat')
+const ethers = hre.ethers
+const DonationArtifact = require('../artifacts/contracts/Donation.sol/Donation.json')
+
+async function main() {
+const [signer] = await hre.ethers.getSigners()
+const donationAddr = '0x5FbDB2315678afecb367f032d93F642f64180aa3'
+const donationContract = new ethers.Contract(
+    donationAddr,
+    DonationArtifact.abi,
+    signer
+)
+
+
+const result = await donationContract.getDonationValue()
+
+console.log(result)
+
+}
+
+
+main()
+  .then(() => process.exit(0))
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+ 
