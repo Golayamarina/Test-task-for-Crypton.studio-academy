@@ -15,10 +15,6 @@ function gatherDonation() public payable {
 donators.push(msg.sender);
 }
 
-function getDonationsAmount() public view returns (uint256) {
-        return donationAmount;
-}
-
 function trasnferToOwner() external {
 require(msg.sender == owner);
 owner.transfer(address(this).balance);
